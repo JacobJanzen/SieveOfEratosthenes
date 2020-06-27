@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <stdbool.h>
 int main(void){
 	int range;
@@ -7,7 +8,7 @@ int main(void){
 	printf("What range of prime numbers do you want to find? ");
 	scanf("%d", &range);
 
-	int nums[range];
+	int *nums = malloc(range * sizeof(int));
 	for(int i = 0; i < range; i++){
 		nums[i] = i+1;
 	}
@@ -33,5 +34,6 @@ int main(void){
 		}
 	}
 	printf("\n");
+	free(nums);
 	return 0;
 }
